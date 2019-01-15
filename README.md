@@ -6,4 +6,4 @@ This game is played in two repeating phases. In phase one the players get to inv
 
 current status: the game works and is playable in my ubuntu virtualbox. 
 
-next step: improve communication, generalize game to allow more than two players, play test the game with friends, publish game on website
+next step: improve communication, generalize game to allow more than two players, play test the game with friends, publish game on website, develop AI.
