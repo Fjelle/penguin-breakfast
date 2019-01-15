@@ -1,10 +1,25 @@
 import player, company, game_manager
 
-player_amount=3                 #how many players will be playing the game
+
 companies_setup=[1,1,1,2,2,3]   #these are the companies that can be invested in. Each entry in the list represents a company, the number represents the value of the company.
 win_condition=30                #The game will end when a player owns 30 pounds or more.
 
 def main():
+
+    #allow the user to choose the amount of players in the game
+    player_amount=-1
+    while (player_amount == -1):
+        try:
+            player_amount=int(input("how many players will be playing?"))
+            if player_amount<0:
+                print("that is silly")
+                player_amount=-1
+
+        except ValueError:
+            print("Please return a number.")
+            player_amount = -1
+
+
     #set up players
     players=[]
     for x in range(0,player_amount):
