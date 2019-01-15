@@ -6,4 +6,4 @@ This game is played in two repeating phases. In phase one the players get to inv
 
 current status: base game mechanics work, but the game offers but little communication on what is expected from the player or on the status of the game. 
 
-next step: improve communication
+next step: improve communication, generalize game to allow more than two players, publish game on website
