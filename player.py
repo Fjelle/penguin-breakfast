@@ -25,16 +25,17 @@ class Player():
 
     def asktoinvest(self,companies_ingame):
 
+        #clear the screen to that players do not see their opponents numbers.
         os.system('cls||clear')
         input("are you ready player " + str(self.playernumber +1)+"? \n")
-        self.print_message() #print the information about the companies and rewards
 
-        for x in range (0, len(companies_ingame)): #ask the player to invest in the various companies
+        self.print_message()                            #print the information about the companies and rewards
+        for x in range (0, len(companies_ingame)):      #ask the player to invest in the various companies
             company_number=x+1
             investment = -1
             while not (0 <= investment <= self.money):
                 try:
-                    investment = int(input("how much to invest in company " + str(company_number)+ ", you currently have " + str(self.money)+" available.\n"))
+                    investment = int(input("how much to invest in company " + str(company_number)+ ", you currently have " + str(self.money)+" pounds available.\n"))
 
                     if investment > self.money:
                         print("You don't have that much money.")

@@ -15,5 +15,5 @@ class GameManager():
                 self.players[owner].recieve_message("You have been rewarded by company " + str(x+1)+"\n")
 
     def investmentphase(self): #asks the players to invest.
-        self.players[0].asktoinvest(self.companies_ingame)
-        self.players[1].asktoinvest(self.companies_ingame)
+        for x in range(0,len(self.players)):
+            self.players[x].asktoinvest(self.companies_ingame)

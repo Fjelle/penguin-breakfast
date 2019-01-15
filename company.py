@@ -1,9 +1,12 @@
 
 class Company():
-    def __init__(self, value, type):
-        self.value=value
-        self.type=type
-        self.ownership=[0,0]
+    def __init__(self, value, type, player_amount):
+        self.value=value        #how much to players earn when they control this company
+        self.type=type          #not used at the moment
+
+        self.ownership=[]    #records investments made by players.
+        for x in range(0,player_amount):
+            self.ownership.append(0)
 
     def return_value(self):
         return self.value
