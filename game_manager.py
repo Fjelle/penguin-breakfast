@@ -12,6 +12,7 @@ class GameManager():
             owner = self.companies_ingame[x].check_owner()
             if owner > -1 :
                 self.players[owner].reward(self.companies_ingame[x].return_value())
+                self.players[owner].recieve_message("You have been rewarded by company " + str(x+1)+"\n")
 
     def investmentphase(self): #asks the players to invest.
         self.players[0].asktoinvest(self.companies_ingame)
