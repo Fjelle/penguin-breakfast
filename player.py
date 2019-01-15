@@ -27,8 +27,7 @@ class Player():
             self.money=self.money-int(investment)
             companies_ingame[x].ownership[self.playernumber]=companies_ingame[x].ownership[self.playernumber]+int(investment)
 
-
-    def reward(self):
-            print("a")
+    def reward(self,reward_earned):
+        self.money=self.money+reward_earned
 
 

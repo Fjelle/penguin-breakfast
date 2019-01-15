@@ -1,6 +1,7 @@
-import player, company
+import player, company, game_manager
 
 companies_setup=[1,1,1,2,2,3]
+win_condition=30
 
 def main():
     #set up two players
@@ -13,9 +14,11 @@ def main():
         companies_ingame.append(company.Company(value,1))
 
     #play until a player has earned enough money to win the game.
-    while (players[0].return_money()<=30) and (players[1].return_money()<= 30):
-        players[0].asktoinvest(companies_ingame)
-        players[1].asktoinvest(companies_ingame)
+    manager=game_manager.GameManager(players,companies_ingame)
+    while (players[0].return_money()<=win_condition) and (players[1].return_money()<= win_condition):
+        manager.investmentphase()
+        manager.rewardphase()
+
 
     #check who won
     if players[0].return_money()>players[1].return_money():

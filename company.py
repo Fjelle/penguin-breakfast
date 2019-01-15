@@ -7,3 +7,15 @@ class Company():
 
     def return_value(self):
         return self.value
+
+    def check_owner(self): #returns the player who owns the company, returns -1 in case of a tie
+        winningplayer = 0
+        maxinvestment = self.ownership[0]
+        for x in range(1,len(self.ownership)):
+            if self.ownership[x] > maxinvestment:
+                maxinvestment = self.ownership[x]
+                winningplayer = x
+            elif self.ownership[x] == maxinvestment:
+                winningplayer = -1
+
+        return winningplayer
