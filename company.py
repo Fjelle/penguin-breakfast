@@ -2,7 +2,7 @@
 class Company():
     def __init__(self, value, type, player_amount):
         self.value=value        #how much to players earn when they control this company
-        self.type=type          #not used at the moment
+        self.type=type          #indicates whether comany rewards players with money or victory points, 1=money, 2=victory points
 
         self.ownership=[]    #records investments made by players.
         for x in range(0,player_amount):
@@ -10,6 +10,10 @@ class Company():
 
     def return_value(self):
         return self.value
+    def return_type(self):
+        return self.type
+    def return_investment(self,playernumber):
+        return self.ownership[playernumber]
 
     def check_owner(self): #returns the player who owns the company, returns -1 in case of a tie
         winningplayer = 0
@@ -22,3 +26,5 @@ class Company():
                 winningplayer = -1
 
         return winningplayer
+
+
