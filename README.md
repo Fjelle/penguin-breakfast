@@ -7,5 +7,5 @@ This game is played in two repeating phases. In phase one the players get to inv
 
 current status: the game works and is playable in my linux virtualbox. The newest addition is the idea of earning both victory points and money, instead of just money.
 
-next step: improve communication by the game to players, play test the game with friends some more, publish game on website, develop AI.
+next step: improve communication by the game to players, play test the game with friends some more, publish game on website, develop AI. 
 
