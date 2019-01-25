@@ -40,12 +40,18 @@ class Player():
 
                     if investment > self.money:
                         print("You don't have that much money.")
+                    elif investment == -3:
+
+                        break
                     elif investment < 0 :
                        print("that is silly.")
 
                 except ValueError:
                     print("Please return a number.")
                     investment = -1
+
+            if investment == -3: #allows to quickly skip a player by entering -3 for an investment
+                break
 
             self.money=self.money-int(investment)
             companies_ingame[x].ownership[self.playernumber]=companies_ingame[x].ownership[self.playernumber]+int(investment)
