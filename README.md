@@ -5,7 +5,7 @@ The goal of the game is to earn victory points. The game ends when a player owns
 
 This game is played in two repeating phases. In phase one the players get to invest their money in several companies. Players know how much they invested in a company, but have little information as to what investments their opponent(s) made. Phase two is the reward phase. Each company has a value and a type. The first type of company rewards it's biggest investor money, a second type of company rewards it's biggest investor victory points. On a tie, no reward is given. Player are told which companies rewarded them, but not which companies rewarded their opponent(s) or which companies did not reward any player. After the reward phase, the game returns to the investment phase and the players are asked to invest their newly earned money. 
 
-current status: the game works and is playable in my linux virtualbox. The newest addition is the idea of earning both victory points and money, instead of just money.
+current status: the game works and is playable in my linux virtualbox. Players can now choose to add ai opponents, who will invest randomly with a focus on companies with high value.
 
 next step: improve communication by the game to players, play test the game with friends some more, publish game on website, develop AI. 
 
