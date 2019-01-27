@@ -51,9 +51,9 @@ def main():
             players.append(player.Player(x))
 
         for x in range(0,ai_amount):
-            players.append(ai_player.Ai_player(x+player_amount))
+            players.append(ai_player.Ai_player(x+player_amount,4,0.5,8))
 
-#    players=[player.Player(0),player.Player(1)]
+
 
         #set up a list containing the companies
         companies_ingame=[]
@@ -77,7 +77,7 @@ def main():
 
 
         #check who won
-        who_won = "player "
+        who_won = "Player "
         for y in range(0,len(players)):
             if players[y].victory_points == most_victory_points:
                 who_won=who_won+str(y+1)+" "

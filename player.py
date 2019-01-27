@@ -2,20 +2,20 @@ import os
 
 class Player():
     def __init__(self,playernumber):
+        self.score=[]
+        self.rewarded_by=[]
         self.playernumber=playernumber
         self.victory_points=0
         self.money=5
-        self.stored_message = '\n Company 1, 2 and 3 are worth 1 pound. \n Company 4 and 5 are worth 2 pounds. \n Company 6 is worth 3 pounds. \n \n company 7,8 and 9 are worth 1 victory point \n company 10 and 11 are worth 2 victory point\n company 12 is worth 3 victory points\n\n'
 
     def return_victory_points(self):
         return self.victory_points
 
-    def recieve_message(self, message):
-        self.stored_message=self.stored_message + message
+    def tell_rewarded(self,company_number):
+        self.rewarded_by.append(company_number)
 
-    def print_message(self):
-        print(self.stored_message)
-        self.stored_message = '\n Company 1, 2 and 3 are worth 1. \n Company 4 and 5 are worth 2. \n Company 6 is worth 3. \n \n company 7,8 and 9 are worth 1 victory point \n company 10 and 11 are worth 2 victory point\n company 12 is worth 3 victory points\n\n'
+    def tell_score(self,score):
+        self.score=score
 
     def return_money(self):
         return self.money
@@ -29,9 +29,20 @@ class Player():
         os.system('cls||clear')
         input("are you ready player " + str(self.playernumber +1)+"? \n")
 
-        self.print_message()                            #print the information about the companies and rewards
-        print("you currently have "+str(self.victory_points)+" victory point(s)\n")
-        for x in range (0, len(companies_ingame)):      #ask the player to invest in the various companies
+        #give the player the necessary information about the game
+        print('\n Company 1, 2 and 3 are worth 1 pound. \n Company 4 and 5 are worth 2 pounds. \n Company 6 is worth 3 pounds. \n \n company 7,8 and 9 are worth 1 victory point \n company 10 and 11 are worth 2 victory point\n company 12 is worth 3 victory points\n')
+
+        for x in range(0,len(self.score)):
+            print("Player " + str(x + 1) + " has " + str(self.score[x]) + " victory points")
+        print("\n")
+
+        for x in range(0,len(self.rewarded_by)):
+            print("you have been rewarded by company "+str(self.rewarded_by[x]+1))
+        print("\n")
+        self.rewarded_by=[]
+
+        #ask the player to invest in the various companies
+        for x in range (0, len(companies_ingame)):
             company_number=x+1
             investment = -1
             while not (0 <= investment <= self.money):
