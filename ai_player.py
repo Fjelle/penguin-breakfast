@@ -1,14 +1,14 @@
-import random
+import random, math
 
 class Ai_player():
     def __init__(self,playernumber, value_preference, rewarded_preference, behind_in_score_dislike, turn_count_modifier):
 
         self.behaviour=[value_preference,rewarded_preference, behind_in_score_dislike,turn_count_modifier] #tells the ai what he should value
-        for x in range(0,len(self.behaviour)):
-            if self.behaviour[x]<0:
-                self.behaviour[x]=float(1/-self.behaviour[x])
-            if self.behaviour[x]==0:
-                self.behaviour[x]=1
+
+        for yy in range(0,len(self.behaviour)): #this block prevents the calculations for the ai's priorities to get out of hand.
+            if self.behaviour[yy]>20:
+                for zz in range(0,len(self.behaviour)):
+                    self.behaviour[zz]+= -20
 
         self.priorities=[]
         self.money=5
@@ -47,21 +47,21 @@ class Ai_player():
 
         #sets up prioritization of valueable companies
         for x in range(0,len(companies_ingame)):
-            self.priorities.append(companies_ingame[x].return_value()*self.behaviour[0])
+            self.priorities.append(companies_ingame[x].return_value()*math.pow(2,self.behaviour[0]))
 
         #sets up prioritization of victory points if player is behind proportional to how much player is behind
         if self.victory_points < max(self.score):
             for x in range(6,len(companies_ingame)):
-                self.priorities[x]=self.priorities[x]*self.behaviour[2]*(max(self.score)-self.victory_points)
+                self.priorities[x]=self.priorities[x]+math.pow(2,self.behaviour[2])*(max(self.score)-self.victory_points)
 
         #adjusts priorities based on whether the player owns the company
         for x in range(0,len(self.who_rewarded)):
-            self.priorities[self.who_rewarded[x]]=self.priorities[self.who_rewarded[x]]*self.behaviour[1]
+            self.priorities[self.who_rewarded[x]]=self.priorities[self.who_rewarded[x]]+math.pow(2,self.behaviour[1])
         self.who_rewarded=[]
 
         #priotitizes victory points later in the game.
         for x in range(6,len(companies_ingame)):
-            self.priorities[x]=self.priorities[x]*self.turn_count*self.behaviour[3]
+            self.priorities[x]=self.priorities[x]+self.turn_count*math.pow(2,self.behaviour[3])
             self.turn_count+=1
 
         #normalize priorities.
