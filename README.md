@@ -9,7 +9,7 @@ Current status:
 
    master branch: this branch is used to develop the AI. The AI tests it's behaviour against itself and other AI players and improves it's behaviour based on the results. The expectation was that the AI would reach a steady state (or Nash equilibrium) by iterating the script for a long time, but that does not seem to be the case. The next step is to figure out whether that is because of a fault in the code or because of the nature of the game.
     
-   Playable: this branch allows the user to play 'penguins' against any number of friends and/or AI. The AI is currently trained to play against a single opponent.
+   Playable branch: this branch allows the user to play 'penguins' against any number of friends and/or AI. The AI is currently trained to play against a single opponent.
 
 Things to do: improve AI, publish game on website. 
 
